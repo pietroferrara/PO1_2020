@@ -19,16 +19,20 @@ public class Car {
     public static void main(String[] args) throws Exception {
         Car myCar = new Car();
 
-        FuelType diesel = new FuelType();
-        diesel.name = "diesel";
-        diesel.costPerLiter = 1.3;
-        diesel.FUEL_CONS = 0.3;
+        FuelType unknown = new FuelType();
+        FuelType diesel = new FuelType("diesel",  1.3, 0.3);
+        FuelType petrol = new FuelType("benzina",  1.5);
 
         myCar.fuelType = diesel;
 
-        FuelTank tank = new FuelTank();
-        tank.type = diesel;
-        tank.amount = 34.5;
+        FuelTank tank = new FuelTank(diesel, 34.5);
+        FuelTank tank2 = new FuelTank(diesel, 32.5);
+
+        System.out.println(tank2.tankId);
+
+        FuelTank.resetTanksCount();
+
+        FuelTank tank3 = new FuelTank(diesel, 31.5);
 
 
         myCar.refuel(tank);
