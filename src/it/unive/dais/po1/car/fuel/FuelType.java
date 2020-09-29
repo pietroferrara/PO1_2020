@@ -1,4 +1,6 @@
-class FuelType {
+package it.unive.dais.po1.car.fuel;
+
+public class FuelType {
     String name;
     double costPerLiter;
     double FUEL_CONS;
