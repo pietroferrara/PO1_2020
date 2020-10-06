@@ -1,10 +1,10 @@
 package it.unive.dais.po1.car.fuel;
 
 public class FuelTank {
-    FuelType type;
-    double amount;
-    static int numberOfTanks;
-    final int tankId;
+    private FuelType type;
+    public double amount;
+    private static int numberOfTanks;
+    private final int tankId;
 
 
 
@@ -13,6 +13,10 @@ public class FuelTank {
         this.amount = amount;
         this.tankId = FuelTank.numberOfTanks;
         FuelTank.numberOfTanks++;
+    }
+
+    public FuelType getFuelType() {
+        return this.type;
     }
 
     static void resetTanksCount() {
