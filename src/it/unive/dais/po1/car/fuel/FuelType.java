@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FuelType {
-    private String name;
+    private final String name;
     private double costPerLiter;
-    private double FUEL_CONS;
+    private final double FUEL_CONS;
     private static int numberOfTypes = 0;
     private final int id;
 
@@ -20,8 +20,8 @@ public class FuelType {
 
     private FuelType(String name, double costPerLiter, double FUEL_CONS) {
         this.name = name;
-        this.costPerLiter = costPerLiter;
-        this.FUEL_CONS = FUEL_CONS;
+        this.costPerLiter = Math.max(0, costPerLiter);
+        this.FUEL_CONS = Math.max(0, FUEL_CONS);
         id = numberOfTypes;
         numberOfTypes++;
     }
