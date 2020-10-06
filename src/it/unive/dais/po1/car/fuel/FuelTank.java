@@ -2,7 +2,7 @@ package it.unive.dais.po1.car.fuel;
 
 public class FuelTank {
     private FuelType type;
-    public double amount;
+    double amount;
     private static int numberOfTanks;
     private final int tankId;
 
@@ -10,7 +10,7 @@ public class FuelTank {
 
     public FuelTank(FuelType type, double amount) {
         this.type = type;
-        this.amount = amount;
+        this.amount = Math.max(0, amount);
         this.tankId = FuelTank.numberOfTanks;
         FuelTank.numberOfTanks++;
     }
@@ -19,8 +19,11 @@ public class FuelTank {
         return this.type;
     }
 
-    static void resetTanksCount() {
-        numberOfTanks = 0;
+    public double getAmount() {
+        return amount;
     }
 
+    public void setAmount(double amount) {
+        this.amount = Math.max(0, amount);
+    }
 }
