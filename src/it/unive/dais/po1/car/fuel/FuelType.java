@@ -7,8 +7,9 @@ public class FuelType {
     private final String name;
     private double costPerLiter;
     private final double FUEL_CONS;
-    private static int numberOfTypes = 0;
     private final int id;
+
+    private static int numberOfTypes = 0;
 
     private FuelType() {
         this("unknown", 0, 0.05);
