@@ -5,7 +5,8 @@ import it.unive.dais.po1.car.fuel.*;
 import java.util.Arrays;
 
 /**
- * Class @code Car represents a car
+ * This class represents a car with a speed and a fuel tank. The methods of this class allows to accelerate, brake,
+ * and refuel that car.
  *
  * @author Pietro Ferrara
  * @since 1.0
@@ -14,19 +15,38 @@ public class Car {
     private double speed;
 
     /**
-     * This represents the amount of fuel that is still in the car tank
+     * This field contains the amount of fuel in liters that is still in the car tank
      */
     private double fuel;
 
+    /**
+     * This field contains the type of fuel of the car
+     */
     private FuelType fuelType;
 
+    /**
+     * Creates a new car.
+     * If the given speed and fuel amount are negative, they are initialized to zero.
+     *
+     * @param speed the initial speed of the car
+     * @param fuelType the type of the fuel of the car
+     * @param fuel the amount of fuel in the car tank
+     */
     public Car(double speed, FuelType fuelType, double fuel) {
-        this.speed = speed;
+        this.speed = Math.max(0, speed);
         this.fuel = Math.max(0, fuel);
         this.fuelType = fuelType;
     }
 
-    public void refuel(FuelTank tank) throws Exception {
+    /**
+     * Refuels the car with the amount of fuel in the given tank.
+     * If the type of fuel in the tank is different from the one of the car, this
+     * method does nothing. Otherwise, it refuels the car, and it empties the tank.
+     *
+     * @param tank the tank of fuel to refuel the car
+     */
+    public void refuel(FuelTank tank)
+    {
         if(! tank.getFuelType().equals(fuelType)) return;
         else {
             fuel += tank.getAmount();
@@ -54,6 +74,10 @@ public class Car {
             fuel = 0.0;
         }
     }
+
+    /**
+     * Stops the car
+     */
     public void fullBreak() {
         speed = 0.0;
     }
