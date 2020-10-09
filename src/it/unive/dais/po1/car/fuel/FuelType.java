@@ -39,10 +39,6 @@ public class FuelType {
         this.FUEL_CONS = Math.max(0, FUEL_CONS);
     }
 
-    /**
-     * Internal cache containing all the already instantiated fuel types
-     */
-    private static Map<String, FuelType> alreadyCreatedFuelTypes = new HashMap<>();
 
     /**
      * Creates and returns a fuel type. If a fuel type with the given name was previously created,
@@ -55,10 +51,11 @@ public class FuelType {
      * @return an instance of fuel type with the given name
      */
     static public FuelType createFuelType(String name, double costPerLiter, double FUEL_CONS) {
-        if(alreadyCreatedFuelTypes.containsKey(name))
-            return alreadyCreatedFuelTypes.get(name);
-        FuelType result = new FuelType(name, costPerLiter, FUEL_CONS);
-        alreadyCreatedFuelTypes.put(name, result);
+        FuelType result = FuelTypeCache.getFuelTypeFromName(name);
+        if(result==null) {
+            result = new FuelType(name, costPerLiter, FUEL_CONS);
+            FuelTypeCache.storeFuelType(result);
+        }
         return result;
     }
 
@@ -68,5 +65,14 @@ public class FuelType {
      */
     public double getFuelConsumption() {
         return FUEL_CONS;
+    }
+
+    /**
+     * Return the name of the fuel type
+     *
+     * @return the name of the fuel type
+     */
+    public String getName() {
+        return name;
     }
 }
