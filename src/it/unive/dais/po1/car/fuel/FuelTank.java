@@ -42,6 +42,16 @@ public class FuelTank {
         FuelTank.numberOfTanks++;
     }
 
+
+    /**
+     * Returns the cost per liter of fuel type of the fuel in this tank
+     *
+     * @return the cost per liter
+     */
+    public double getFuelCost() {
+        return this.type.getCostPerLiter();
+    }
+
     /**
      * Returns the type of fuel in the tank
      *

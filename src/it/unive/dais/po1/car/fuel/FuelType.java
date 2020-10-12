@@ -41,6 +41,15 @@ public class FuelType {
 
 
     /**
+     * Returns the cost per liter of this fuel type
+     *
+     * @return the cost per liter
+     */
+    public double getCostPerLiter() {
+        return this.costPerLiter;
+    }
+
+    /**
      * Creates and returns a fuel type. If a fuel type with the given name was previously created,
      * the method returns the existing instance (with the cost per liter and fuel consumption set
      * when this was created). Otherwise, it creates and returns a new fuel type caching it.

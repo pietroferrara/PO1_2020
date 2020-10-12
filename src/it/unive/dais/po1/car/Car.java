@@ -11,8 +11,7 @@ import java.util.Arrays;
  * @author Pietro Ferrara
  * @since 1.0
  */
-public class Car {
-    private double speed;
+public class Car extends Vehicle {
 
     /**
      * This field contains the amount of fuel in liters that is still in the car tank
@@ -39,6 +38,15 @@ public class Car {
     }
 
     /**
+     * Returns the cost per liter of fuel type of this car
+     *
+     * @return the cost per liter
+     */
+    public double getFuelCost() {
+        return this.fuelType.getCostPerLiter();
+    }
+
+    /**
      * Refuels the car with the amount of fuel in the given tank.
      * If the type of fuel in the tank is different from the one of the car, this
      * method does nothing. Otherwise, it refuels the car, and it empties the tank.
@@ -62,7 +70,7 @@ public class Car {
      *
      * @param a the increase of speed
      */
-    public void accelerate(double a) {
+    /*public void accelerate(double a) {
         if(a<0)  return;
         double conspt = a*fuelType.getFuelConsumption();
         if(conspt <= fuel) {
@@ -73,28 +81,7 @@ public class Car {
             speed += fuel/fuelType.getFuelConsumption();//How much I can accelerate given the fuel I have
             fuel = 0.0;
         }
-    }
-
-    /**
-     * Stops the car
-     */
-    public void fullBreak() {
-        speed = 0.0;
-    }
+    }*/
 
 
-    public static void main(String[] args) throws Exception {
-
-        FuelType diesel = FuelType.createFuelType("diesel",  1.3, 0.3);
-        FuelType diesel2 = FuelType.createFuelType("diesel",  1.35, 0.5);
-        double fc = diesel2.getFuelConsumption();
-        Car myCar = new Car(100, diesel, 10);
-        FuelTank tank = new FuelTank(diesel, 10);
-        double amount = tank.getAmount();
-        myCar.refuel(tank);
-        myCar.accelerate(20);
-        System.out.println("We are done!");
-        Arrays.sort(new int[]{});
-
-    }
 }
