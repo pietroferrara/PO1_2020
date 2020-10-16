@@ -1,8 +1,7 @@
 package it.unive.dais.po1.car;
 
 import it.unive.dais.po1.car.fuel.*;
-
-import java.util.Arrays;
+import it.unive.dais.po1.vehicle.Vehicle;
 
 /**
  * This class represents a car with a speed and a fuel tank. The methods of this class allows to accelerate, brake,
@@ -23,6 +22,7 @@ public class Car extends Vehicle {
      */
     private FuelType fuelType;
 
+
     /**
      * Creates a new car.
      * If the given speed and fuel amount are negative, they are initialized to zero.
@@ -32,9 +32,12 @@ public class Car extends Vehicle {
      * @param fuel the amount of fuel in the car tank
      */
     public Car(double speed, FuelType fuelType, double fuel) {
-        this.speed = Math.max(0, speed);
+        super(Math.max(0, speed));
         this.fuel = Math.max(0, fuel);
         this.fuelType = fuelType;
+    }
+    public Car(FuelType fuelType, double fuel) {
+        this(0, fuelType, fuel);
     }
 
     /**
@@ -70,17 +73,26 @@ public class Car extends Vehicle {
      *
      * @param a the increase of speed
      */
-    /*public void accelerate(double a) {
+    public void accelerate(double a) {
         if(a<0)  return;
         double conspt = a*fuelType.getFuelConsumption();
         if(conspt <= fuel) {
-            speed += a;
+            super.accelerate(a); //super.speed += a;
             fuel -= conspt;
         }
         else {
-            speed += fuel/fuelType.getFuelConsumption();//How much I can accelerate given the fuel I have
+            super.accelerate(fuel/fuelType.getFuelConsumption());//this.speed += fuel/fuelType.getFuelConsumption();//How much I can accelerate given the fuel I have
             fuel = 0.0;
         }
+    }
+
+    /*public boolean isFuelEmpty() {
+        if(fuel <= 0) {
+            super.speed = super.speed * 0.9;
+            return true;
+        }
+        else
+            return false;
     }*/
 
 

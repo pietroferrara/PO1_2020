@@ -1,11 +1,11 @@
-package it.unive.dais.po1.car;
+package it.unive.dais.po1.vehicle;
 
-public class Vehicle {
-    double speed;
+abstract public class Vehicle {
+    private double speed;
 
-    /*public Vehicle(double initialSpeed) {
+    public Vehicle(double initialSpeed) {
         this.speed = initialSpeed;
-    }*/
+    }
 
     /**
      * Accelerate the vehicle by the given amount of km/h.
@@ -15,7 +15,9 @@ public class Vehicle {
      */
     public void accelerate(double a) {
         if(a>=0)
-            speed = speed + a;
+            this.speed = a;
+        else
+            this.speed = 0;
     }
 
     /**
