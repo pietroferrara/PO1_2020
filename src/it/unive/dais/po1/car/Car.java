@@ -65,16 +65,24 @@ public class Car extends Vehicle {
         }
     }
 
+
+    public void refuel(double amount)
+    {
+        fuel += amount;
+    }
+
     /**
-     * Accelerate the car by the given amount of km/h.
+     * Accelerate the car by the given amount of km/h and it consumes the fuel accordingly.
      * If there is not enough fuel, the car accelerates up to the maximum
      * allowed by the remaining fuel
      * If the increase is negative, it does not accelerate
      *
      * @param a the increase of speed
      */
-    public void accelerate(double a) {
-        if(a<0)  return;
+    final public void accelerate(double a) {
+        super.accelerate(a);
+        this.fuel -= a * fuelType.getFuelConsumption();
+        /*if(a<0)  return;
         double conspt = a*fuelType.getFuelConsumption();
         if(conspt <= fuel) {
             super.accelerate(a); //super.speed += a;
@@ -83,7 +91,7 @@ public class Car extends Vehicle {
         else {
             super.accelerate(fuel/fuelType.getFuelConsumption());//this.speed += fuel/fuelType.getFuelConsumption();//How much I can accelerate given the fuel I have
             fuel = 0.0;
-        }
+        }*/
     }
 
     /*public boolean isFuelEmpty() {

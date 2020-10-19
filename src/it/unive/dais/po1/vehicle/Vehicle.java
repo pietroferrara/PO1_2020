@@ -15,16 +15,18 @@ abstract public class Vehicle {
      */
     public void accelerate(double a) {
         if(a>=0)
-            this.speed = a;
+            this.speed += a;
         else
             this.speed = 0;
     }
 
+
     /**
      * Stops the vehicle
      */
-    public void fullBreak() {
+    final public void fullBreak() {
         speed = 0.0;
     }
+
 
 }

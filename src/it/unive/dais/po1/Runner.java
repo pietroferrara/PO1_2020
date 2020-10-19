@@ -30,6 +30,10 @@ public class Runner {
         FuelType diesel2 = FuelType.createFuelType("diesel",  1.35, 0.5);
         double fc = diesel2.getFuelConsumption();
         Car myCar = new Car(100, diesel, 10);
+        myCar.accelerate(10);
+        myCar.refuel(10);
+        FuelTank tank = new FuelTank(diesel, 10);
+        myCar.refuel(tank);
         Bicycle bike = new Bicycle(100, 2, 2);
 
         Truck truck = new Truck(100, diesel, 10);
@@ -37,7 +41,6 @@ public class Runner {
         truck.fullBreak();
 
 
-        FuelTank tank = new FuelTank(diesel, 10);
         double amount = tank.getAmount();
         myCar.refuel(tank);
         myCar.accelerate(20);

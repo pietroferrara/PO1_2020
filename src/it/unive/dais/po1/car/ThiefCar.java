@@ -1,10 +1,8 @@
 package it.unive.dais.po1.car;
 
-
 import it.unive.dais.po1.car.fuel.FuelType;
 
-final public class Truck extends Car {
-    private double load;
+public class ThiefCar extends Car {
 
     /**
      * Creates a new car.
@@ -14,11 +12,12 @@ final public class Truck extends Car {
      * @param fuelType the type of the fuel of the car
      * @param fuel     the amount of fuel in the car tank
      */
-    public Truck(double speed, FuelType fuelType, double fuel) {
+    public ThiefCar(double speed, FuelType fuelType, double fuel) {
         super(speed, fuelType, fuel);
     }
 
-    public void chargeLoad(double l) {
-        load += l;
+    public ThiefCar(FuelType fuelType, double fuel) {
+        super(fuelType, fuel);
     }
+
 }
