@@ -7,13 +7,17 @@ abstract public class Vehicle {
         this.speed = initialSpeed;
     }
 
+    public double getSpeed() {
+        return speed;
+    }
+
     /**
      * Accelerate the vehicle by the given amount of km/h.
      * If the increase is negative, it does not accelerate
      *
      * @param a the increase of speed
      */
-    public void accelerate(double a) {
+    protected void accelerate(double a) {
         if(a>=0)
             this.speed += a;
         else
