@@ -1,6 +1,6 @@
 package it.unive.dais.po1.vehicle;
 
-abstract public class Vehicle {
+ public class Vehicle {
     private double speed;
 
     public Vehicle(double initialSpeed) {
@@ -17,7 +17,7 @@ abstract public class Vehicle {
      *
      * @param a the increase of speed
      */
-    protected void accelerate(double a) {
+    public void accelerate(double a) {
         if(a>=0)
             this.speed += a;
         else

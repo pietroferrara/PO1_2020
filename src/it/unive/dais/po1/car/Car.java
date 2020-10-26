@@ -1,5 +1,6 @@
 package it.unive.dais.po1.car;
 
+import it.unive.dais.po1.bicycle.Bicycle;
 import it.unive.dais.po1.car.fuel.*;
 import it.unive.dais.po1.vehicle.Vehicle;
 
@@ -81,8 +82,7 @@ public class Car extends Vehicle {
      */
     final public void accelerate(double a) {
         super.accelerate(a);
-        this.fuel -= a * fuelType.getFuelConsumption();
-        /*if(a<0)  return;
+        if(a<0)  return;
         double conspt = a*fuelType.getFuelConsumption();
         if(conspt <= fuel) {
             super.accelerate(a); //super.speed += a;
@@ -91,7 +91,7 @@ public class Car extends Vehicle {
         else {
             super.accelerate(fuel/fuelType.getFuelConsumption());//this.speed += fuel/fuelType.getFuelConsumption();//How much I can accelerate given the fuel I have
             fuel = 0.0;
-        }*/
+        }
     }
 
     /*public boolean isFuelEmpty() {

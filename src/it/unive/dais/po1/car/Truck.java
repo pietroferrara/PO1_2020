@@ -2,8 +2,9 @@ package it.unive.dais.po1.car;
 
 
 import it.unive.dais.po1.car.fuel.FuelType;
+import it.unive.dais.po1.vehicle.Loadable;
 
-final public class Truck extends Car {
+public class Truck extends Car implements Loadable {
     private double load;
 
     /**
