@@ -6,6 +6,7 @@ import it.unive.dais.po1.vehicle.HorseCart;
 import it.unive.dais.po1.vehicle.Loadable;
 import it.unive.dais.po1.car.fuel.FuelTank;
 import it.unive.dais.po1.car.fuel.FuelType;
+import it.unive.dais.po1.vehicle.LoadableUnloadable;
 
 public class Runner {
 
@@ -17,6 +18,11 @@ public class Runner {
     private static void splitLoad(double load, Loadable[] v) {
         for(int i = 0; i < v.length; i++)
             v[i].chargeLoad(load/v.length);
+    }
+
+    private static void printAll(Printable[] printables) {
+        for(int i = 0; i < printables.length; i++)
+            printables[i].print();
     }
 
 
@@ -39,12 +45,20 @@ public class Runner {
         HorseCart cart = new HorseCart(0);
         Truck truck = new Truck(100, diesel, 10);
 
+        LoadableUnloadable obj = truck;
+
         Loadable[] loadables = new Loadable[2];
         loadables[0] = cart;
         loadables[1] = truck;
 
         splitLoad(1000, loadables);
 
+
+        Printable[] printables = new Printable[2];
+        printables[0] = new Truck(100, diesel, 10);
+        ((Truck) printables[0]).chargeLoad(10);
+        printables[1] = new Square(10);
+        printAll(printables);
 
         //Vehicle v = new Vehicle(10);
         //v.accelerate(10);

@@ -16,8 +16,14 @@ public class HorseCart extends Vehicle implements Loadable {
         super(speed);
     }
 
-    public void chargeLoad(double l) {
-        load += l;
+    public void setLoad(double l) {
+        load = l;
+    }
+    public double getLoad() {
+        return load;
     }
 
+    public double getMaxLoad() {
+        return 50;
+    }
 }
