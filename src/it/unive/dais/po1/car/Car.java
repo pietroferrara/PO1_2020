@@ -46,6 +46,7 @@ public class Car extends Vehicle {
      *
      * @return the cost per liter
      */
+
     public double getFuelCost() {
         return this.fuelType.getCostPerLiter();
     }
