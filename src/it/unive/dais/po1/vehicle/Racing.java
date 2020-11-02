@@ -1,10 +1,23 @@
 package it.unive.dais.po1.vehicle;
 
+import it.unive.dais.po1.car.Car;
+import it.unive.dais.po1.car.Truck;
+
 public class Racing {
 
-    static public int race(Vehicle v1, Vehicle v2, double length) {
-;
+    public int race(Car v1, Vehicle v2, double length) {
+        return 0;
+    }
 
+    public int race(Car v1, Car v2, double length) {
+        return 0;
+    }
+
+    public int race(Vehicle v1, Truck v2, double length) {
+        return 0;
+    }
+
+    public int race(Vehicle v1, Vehicle v2, double length) {
         v1.fullBreak();
         v2.fullBreak();
         double distanceV1 = 0, distanceV2=0;

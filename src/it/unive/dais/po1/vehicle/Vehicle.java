@@ -1,6 +1,6 @@
 package it.unive.dais.po1.vehicle;
 
- public class Vehicle {
+ public class Vehicle extends Object {
     private double speed;
 
     public Vehicle(double initialSpeed) {
@@ -23,6 +23,10 @@ package it.unive.dais.po1.vehicle;
         else
             this.speed = 0;
     }
+
+        public static void foo() { System.out.println("Vehicle 1");
+        }
+
 
 
     /**

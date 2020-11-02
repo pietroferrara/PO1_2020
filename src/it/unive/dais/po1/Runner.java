@@ -1,11 +1,18 @@
 package it.unive.dais.po1;
 
+import it.unive.dais.po1.bicycle.Bicycle;
+import it.unive.dais.po1.car.Car;
 import it.unive.dais.po1.car.Truck;
 import it.unive.dais.po1.polygon.*;
 import it.unive.dais.po1.vehicle.HorseCart;
 import it.unive.dais.po1.vehicle.Loadable;
 import it.unive.dais.po1.car.fuel.FuelTank;
 import it.unive.dais.po1.car.fuel.FuelType;
+import it.unive.dais.po1.vehicle.Racing;
+import it.unive.dais.po1.vehicle.Vehicle;
+
+import java.util.AbstractSet;
+import java.util.TreeSet;
 
 public class Runner {
 
@@ -36,15 +43,17 @@ public class Runner {
         FuelTank tank = new FuelTank(diesel, 10);
 
 
-        HorseCart cart = new HorseCart(0);
-        Truck truck = new Truck(100, diesel, 10);
+        Racing common_racing = new Racing();
+        Car v1 = new Car(10, diesel, 10);
+        Car v2 = new Car(10, diesel, 10);
+        Truck v3 = new Truck(10, diesel, 10);
+        Vehicle v4 = v1;
+        Vehicle v5 = v3;
 
-        Loadable[] loadables = new Loadable[2];
-        loadables[0] = cart;
-        loadables[1] = truck;
+        v1.foo();
+        v4.foo();
 
-        splitLoad(1000, loadables);
-
+        v1.equals(null);
 
         //Vehicle v = new Vehicle(10);
         //v.accelerate(10);

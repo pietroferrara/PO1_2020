@@ -78,4 +78,8 @@ public class FuelTank {
     public void setAmount(double amount) {
         this.amount = Math.max(0, amount);
     }
+
+    static public void resetTanksId() {
+        FuelTank.numberOfTanks = 0;
+    }
 }

@@ -95,6 +95,10 @@ public class Car extends Vehicle {
         }
     }
 
+    public static void foo() { System.out.println("Vehicle 2");
+    }
+
+
     /*public boolean isFuelEmpty() {
         if(fuel <= 0) {
             super.speed = super.speed * 0.9;
