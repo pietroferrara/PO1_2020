@@ -4,6 +4,8 @@ import it.unive.dais.po1.bicycle.Bicycle;
 import it.unive.dais.po1.car.fuel.*;
 import it.unive.dais.po1.vehicle.Vehicle;
 
+import java.util.Objects;
+
 /**
  * This class represents a car with a speed and a fuel tank. The methods of this class allows to accelerate, brake,
  * and refuel that car.
@@ -98,8 +100,19 @@ public class Car extends Vehicle {
     public static void foo() { System.out.println("Vehicle 2");
     }
 
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Car car = (Car) o;
+        return Double.compare(car.fuel, fuel) == 0 &&
+                Objects.equals(fuelType, car.fuelType);
+    }
 
-    /*public boolean isFuelEmpty() {
+    public int hashCode() {
+        return Objects.hash(fuel, fuelType);
+    }
+/*public boolean isFuelEmpty() {
         if(fuel <= 0) {
             super.speed = super.speed * 0.9;
             return true;

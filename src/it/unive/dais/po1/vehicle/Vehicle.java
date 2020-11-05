@@ -1,6 +1,8 @@
 package it.unive.dais.po1.vehicle;
 
- public class Vehicle extends Object {
+import java.util.Objects;
+
+public class Vehicle extends Object {
     private double speed;
 
     public Vehicle(double initialSpeed) {
@@ -36,5 +38,19 @@ package it.unive.dais.po1.vehicle;
         speed = 0.0;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Vehicle vehicle = (Vehicle) o;
+        return Double.compare(vehicle.speed, speed) == 0;
+    }
 
+    public Vehicle clone() {
+        return new Vehicle(this.speed);
+    }
+
+    public int hashCode() {
+        return 0;
+    }
 }

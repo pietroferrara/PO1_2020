@@ -11,8 +11,7 @@ import it.unive.dais.po1.car.fuel.FuelType;
 import it.unive.dais.po1.vehicle.Racing;
 import it.unive.dais.po1.vehicle.Vehicle;
 
-import java.util.AbstractSet;
-import java.util.TreeSet;
+import java.util.*;
 
 public class Runner {
 
@@ -43,17 +42,22 @@ public class Runner {
         FuelTank tank = new FuelTank(diesel, 10);
 
 
-        Racing common_racing = new Racing();
-        Car v1 = new Car(10, diesel, 10);
-        Car v2 = new Car(10, diesel, 10);
-        Truck v3 = new Truck(10, diesel, 10);
-        Vehicle v4 = v1;
-        Vehicle v5 = v3;
 
-        v1.foo();
-        v4.foo();
+        Vehicle v1 = new Vehicle(10);
+        Vehicle v2 = new Vehicle(20);
 
-        v1.equals(null);
+        Vehicle v3 = new Vehicle(20);
+        Vehicle v4 = new Vehicle(30);
+
+        Set<Vehicle> set = new HashSet<>();
+
+        set.add(v1);
+        set.add(v2);
+        set.add(v4);
+
+        for(Vehicle v : set)  {
+            System.out.println(v.getSpeed());
+        }
 
         //Vehicle v = new Vehicle(10);
         //v.accelerate(10);
