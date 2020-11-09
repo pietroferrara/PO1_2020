@@ -100,6 +100,15 @@ public class Car extends Vehicle {
     public static void foo() { System.out.println("Vehicle 2");
     }
 
+    @Override
+    public String toString() {
+        return "Car{" +
+                "speed=" + super.getSpeed() +
+                ", fuel=" + fuel +
+                ", fuelType=" + fuelType +
+                '}';
+    }
+
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

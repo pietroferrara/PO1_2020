@@ -1,9 +1,11 @@
 package it.unive.dais.po1.vehicle;
 
+import it.unive.dais.po1.car.Car;
+
 import java.util.Objects;
 
-public class Vehicle extends Object {
-    private double speed;
+public class Vehicle implements Comparable<Vehicle> {
+    public double speed;
 
     public Vehicle(double initialSpeed) {
         this.speed = initialSpeed;
@@ -52,5 +54,23 @@ public class Vehicle extends Object {
 
     public int hashCode() {
         return 0;
+    }
+
+    @Override
+    public String toString() {
+        return "Vehicle{" +
+                "speed=" + speed +
+                '}';
+    }
+
+    public int compareTo(Vehicle o) {
+        if(this.equals(o)) return 0;
+        if (o == null || getClass() != o.getClass()) {
+            if(this instanceof Car) {
+                return 1;
+            }
+            else return 1;
+        }
+        return (int) (o.speed - this.speed);
     }
 }

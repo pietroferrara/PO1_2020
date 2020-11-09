@@ -38,26 +38,57 @@ public class Runner {
 
         System.out.println("Perimeter: "+square.getPerimeter());/*
          */
+
+        String s = "abc";
+        System.out.println(s.charAt(1));
+        String s1 = s.concat("def");
+        String s2 = s + "def";
+        int n = 123;
+
         FuelType diesel = FuelType.createFuelType("diesel",  1.3, 0.3);
         FuelTank tank = new FuelTank(diesel, 10);
 
 
 
         Vehicle v1 = new Vehicle(10);
-        Vehicle v2 = new Vehicle(20);
+        Car v4 = new Car(30, diesel, 20);
+        Truck v2 = new Truck(20, diesel, 20);
+        Vehicle v5 = new Vehicle(40);
 
-        Vehicle v3 = new Vehicle(20);
-        Vehicle v4 = new Vehicle(30);
 
-        Set<Vehicle> set = new HashSet<>();
+        String sv1 = v1.toString();
+        String sv4 = v4.toString();
+        String sv2 = v2.toString();
+
+        TreeSet<Vehicle> set = new TreeSet<Vehicle>();
 
         set.add(v1);
-        set.add(v2);
         set.add(v4);
+        set.add(v2);
+        set.add(v5);
 
-        for(Vehicle v : set)  {
-            System.out.println(v.getSpeed());
+        v5.speed = 20;
+
+        for(Vehicle v : set) {
+            System.out.println(v.getClass().getName()+" "+v.getSpeed());
         }
+
+
+        String a = "abc";
+        String a1 = new String("abc");//same of a
+
+        String b = a + "def"; //"abcdef"
+
+        String c = a.concat("def"); //"abcdef"
+
+        String d = c.replace('a', 'g'); //"gbcdef"
+
+        String e = c.substring(0, 3); //"abc"
+
+        String[] f = c.split("d"); //{"abc", "ef"}
+
+
+
 
         //Vehicle v = new Vehicle(10);
         //v.accelerate(10);

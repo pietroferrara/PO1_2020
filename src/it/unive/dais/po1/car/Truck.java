@@ -45,4 +45,12 @@ public class Truck extends Car implements LoadableUnloadable, Printable {
         }
         else load = 0;
     }
+
+    @Override
+    public String toString() {
+        return "Truck{" +
+                "load=" + load +
+                ", speed=" + speed +
+                '}';
+    }
 }
