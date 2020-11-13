@@ -17,7 +17,7 @@ public class Racing {
         return 0;
     }
 
-    public int race(Vehicle v1, Vehicle v2, double length) {
+    public int race(Vehicle v1, Vehicle v2, double length) throws NegativeSpeedException {
         v1.fullBreak();
         v2.fullBreak();
         double distanceV1 = 0, distanceV2=0;

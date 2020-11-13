@@ -2,6 +2,7 @@ package it.unive.dais.po1.car;
 
 import it.unive.dais.po1.bicycle.Bicycle;
 import it.unive.dais.po1.car.fuel.*;
+import it.unive.dais.po1.vehicle.NegativeSpeedException;
 import it.unive.dais.po1.vehicle.Vehicle;
 
 import java.util.Objects;
@@ -83,7 +84,7 @@ public class Car extends Vehicle {
      *
      * @param a the increase of speed
      */
-    final public void accelerate(double a) {
+    final public void accelerate(double a) throws NegativeSpeedException {
         super.accelerate(a);
         if(a<0)  return;
         double conspt = a*fuelType.getFuelConsumption();

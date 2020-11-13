@@ -4,12 +4,9 @@ import it.unive.dais.po1.bicycle.Bicycle;
 import it.unive.dais.po1.car.Car;
 import it.unive.dais.po1.car.Truck;
 import it.unive.dais.po1.polygon.*;
-import it.unive.dais.po1.vehicle.HorseCart;
-import it.unive.dais.po1.vehicle.Loadable;
+import it.unive.dais.po1.vehicle.*;
 import it.unive.dais.po1.car.fuel.FuelTank;
 import it.unive.dais.po1.car.fuel.FuelType;
-import it.unive.dais.po1.vehicle.Racing;
-import it.unive.dais.po1.vehicle.Vehicle;
 
 import java.util.*;
 
@@ -26,27 +23,13 @@ public class Runner {
     }
 
 
-    public static void main(String[] args)  {
-        /*Rectangle rectangle = new Rectangle(2, 3);
-        System.out.println(getStringArea(rectangle));
-
-        Square square = new Square(3);
-        System.out.println(getStringArea(square));
-
-        Rhombus rhombus = new Rhombus(3, 4, 5);
-        System.out.println(getStringArea(rhombus));
-
-        System.out.println("Perimeter: "+square.getPerimeter());/*
-         */
-
-        String s = "abc";
-        System.out.println(s.charAt(1));
-        String s1 = s.concat("def");
-        String s2 = s + "def";
-        int n = 123;
+    public static void main(String[] args)  throws NegativeSpeedException  {
 
         FuelType diesel = FuelType.createFuelType("diesel",  1.3, 0.3);
         FuelTank tank = new FuelTank(diesel, 10);
+
+        Car c = new Car(0,diesel, 10);
+        c.accelerate(-10);
 
 
 
@@ -55,37 +38,6 @@ public class Runner {
         Truck v2 = new Truck(20, diesel, 20);
         Vehicle v5 = new Vehicle(40);
 
-
-        String sv1 = v1.toString();
-        String sv4 = v4.toString();
-        String sv2 = v2.toString();
-
-        TreeSet<Vehicle> set = new TreeSet<Vehicle>();
-
-        set.add(v1);
-        set.add(v4);
-        set.add(v2);
-        set.add(v5);
-
-        v5.speed = 20;
-
-        for(Vehicle v : set) {
-            System.out.println(v.getClass().getName()+" "+v.getSpeed());
-        }
-
-
-        String a = "abc";
-        String a1 = new String("abc");//same of a
-
-        String b = a + "def"; //"abcdef"
-
-        String c = a.concat("def"); //"abcdef"
-
-        String d = c.replace('a', 'g'); //"gbcdef"
-
-        String e = c.substring(0, 3); //"abc"
-
-        String[] f = c.split("d"); //{"abc", "ef"}
 
 
 

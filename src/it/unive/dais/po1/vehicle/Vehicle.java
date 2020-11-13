@@ -21,17 +21,11 @@ public class Vehicle implements Comparable<Vehicle> {
      *
      * @param a the increase of speed
      */
-    public void accelerate(double a) {
+    public void accelerate(double a) throws NegativeSpeedException {
         if(a>=0)
             this.speed += a;
-        else
-            this.speed = 0;
+        else throw new NegativeSpeedException();
     }
-
-        public static void foo() { System.out.println("Vehicle 1");
-        }
-
-
 
     /**
      * Stops the vehicle
