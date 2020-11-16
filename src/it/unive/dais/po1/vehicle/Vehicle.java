@@ -2,6 +2,7 @@ package it.unive.dais.po1.vehicle;
 
 import it.unive.dais.po1.car.Car;
 
+import java.io.IOException;
 import java.util.Objects;
 
 public class Vehicle implements Comparable<Vehicle> {
@@ -20,11 +21,12 @@ public class Vehicle implements Comparable<Vehicle> {
      * If the increase is negative, it does not accelerate
      *
      * @param a the increase of speed
+     * @throws NegativeSpeedException the given acceleration is negative
      */
     public void accelerate(double a) throws NegativeSpeedException {
         if(a>=0)
             this.speed += a;
-        else throw new NegativeSpeedException();
+        else throw new NegativeSpeedException(a);
     }
 
     /**

@@ -5,6 +5,7 @@ import it.unive.dais.po1.car.fuel.*;
 import it.unive.dais.po1.vehicle.NegativeSpeedException;
 import it.unive.dais.po1.vehicle.Vehicle;
 
+import java.io.IOException;
 import java.util.Objects;
 
 /**

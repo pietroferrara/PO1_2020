@@ -23,20 +23,21 @@ public class Runner {
     }
 
 
-    public static void main(String[] args)  throws NegativeSpeedException  {
+    public static void main(String[] args) throws NegativeSpeedException  {
 
         FuelType diesel = FuelType.createFuelType("diesel",  1.3, 0.3);
         FuelTank tank = new FuelTank(diesel, 10);
 
-        Car c = new Car(0,diesel, 10);
-        c.accelerate(-10);
-
+        Vehicle c = new Car(0,diesel, 10);
 
 
         Vehicle v1 = new Vehicle(10);
         Car v4 = new Car(30, diesel, 20);
         Truck v2 = new Truck(20, diesel, 20);
         Vehicle v5 = new Vehicle(40);
+
+        Racing race = new Racing();
+        race.race(v4, v2, 10);
 
 
 
