@@ -10,8 +10,6 @@ import java.util.*;
 abstract public class Tournament {
     protected final Collection<Player> players;
     protected final Board board;
-    protected final int DRAW = 1;
-    protected final int WIN = 2;
 
 
     /**
