@@ -24,14 +24,12 @@ public class Racing {
                     if (distanceV1 > distanceV2) return 1;
                     else return 2;
                 }
-                v1.accelerate(Math.random() * 10);
+                v1.accelerate((-Math.random()) * 10);
                 v2.accelerate(Math.random() * 10);
-
             }
         }
         catch(NegativeSpeedException e) {
-            System.err.println("A negative exception happened");
-            return -1;
+            throw new RuntimeException("Random number generation gave back a negative value: "+e.getSpeed()/10, e);
         }
         finally {
             v1.fullBreak();

@@ -30,11 +30,12 @@ public class Runner {
 
         Vehicle c = new Car(0,diesel, 10);
 
-
         Vehicle v1 = new Vehicle(10);
         Car v4 = new Car(30, diesel, 20);
         Truck v2 = new Truck(20, diesel, 20);
         Vehicle v5 = new Vehicle(40);
+
+        v4.refuel(2.0);
 
         Racing race = new Racing();
         race.race(v4, v2, 10);

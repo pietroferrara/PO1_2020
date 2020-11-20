@@ -72,6 +72,7 @@ public class Car extends Vehicle {
     }
 
 
+    @Deprecated(since = "2.0")
     public void refuel(double amount)
     {
         fuel += amount;
@@ -99,8 +100,6 @@ public class Car extends Vehicle {
         }
     }
 
-    public static void foo() { System.out.println("Vehicle 2");
-    }
 
     @Override
     public String toString() {
