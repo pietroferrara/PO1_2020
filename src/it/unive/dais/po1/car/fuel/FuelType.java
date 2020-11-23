@@ -1,7 +1,9 @@
 package it.unive.dais.po1.car.fuel;
 
-import java.util.HashMap;
-import java.util.Map;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 /**
  * This class represents a type of fuel. Only an instance per name of fuel can exist.
@@ -9,21 +11,26 @@ import java.util.Map;
  * @author Pietro Ferrara
  * @since 1.0
  */
+@XmlRootElement
+@XmlType
 public class FuelType {
 
     /**
      * The name of the fuel
      */
+    @XmlElement
     private final String name;
 
     /**
      * The cost of a liter of fuel
      */
+    @XmlAttribute
     private double costPerLiter;
 
     /**
      * The consumption of fuel, represented as km per liter
      */
+    @XmlAttribute
     private final double FUEL_CONS;
 
     /**

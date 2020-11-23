@@ -6,12 +6,13 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class Vehicle implements Comparable<Vehicle> {
-    public double speed;
+    @Speed(forward = true) public double speed;
 
-    public Vehicle(double initialSpeed) {
+    public Vehicle(@Speed(forward = true, type = "m/s") double initialSpeed) {
         this.speed = initialSpeed;
     }
 
+    @Speed(forward = true)
     public double getSpeed() {
         return speed;
     }
@@ -23,7 +24,7 @@ public class Vehicle implements Comparable<Vehicle> {
      * @param a the increase of speed
      * @throws NegativeSpeedException the given acceleration is negative
      */
-    public void accelerate(double a) throws NegativeSpeedException {
+    public void accelerate(@Speed(forward = true, type = "miles/h") double a) throws NegativeSpeedException {
         assert a >= 0 : "The given speed is negative";
         if(a>=0)
             this.speed += a;
@@ -45,6 +46,7 @@ public class Vehicle implements Comparable<Vehicle> {
         return Double.compare(vehicle.speed, speed) == 0;
     }
 
+    @SuppressWarnings("all")
     public Vehicle clone() {
         return new Vehicle(this.speed);
     }

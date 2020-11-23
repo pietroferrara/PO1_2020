@@ -24,7 +24,7 @@ public class Racing {
                     if (distanceV1 > distanceV2) return 1;
                     else return 2;
                 }
-                v1.accelerate((-Math.random()) * 10);
+                v1.accelerate(Math.random() * 10);
                 v2.accelerate(Math.random() * 10);
             }
         }

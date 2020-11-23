@@ -18,5 +18,9 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="javax.xml.bind:jaxb-api:2.3.0" level="project" />
+    <orderEntry type="library" name="com.sun.xml.bind:jaxb-core:2.3.0" level="project" />
+    <orderEntry type="library" name="com.sun.xml.bind:jaxb-impl:2.3.0" level="project" />
+    <orderEntry type="library" name="javax.activation:activation:1.1.1" level="project" />
   </component>
 </module>

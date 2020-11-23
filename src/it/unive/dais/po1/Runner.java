@@ -8,6 +8,12 @@ import it.unive.dais.po1.vehicle.*;
 import it.unive.dais.po1.car.fuel.FuelTank;
 import it.unive.dais.po1.car.fuel.FuelType;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.*;
 
 public class Runner {
@@ -23,14 +29,16 @@ public class Runner {
     }
 
 
-    public static void main(String[] args) throws NegativeSpeedException  {
+    public static void main(String[] args) throws NegativeSpeedException, JAXBException {
 
         FuelType diesel = FuelType.createFuelType("diesel",  1.3, 0.3);
         FuelTank tank = new FuelTank(diesel, 10);
 
+        Runner.marshal(diesel);
+
         Vehicle c = new Car(0,diesel, 10);
 
-        Vehicle v1 = new Vehicle(10);
+        /* v1 = new Vehicle(10);
         Car v4 = new Car(30, diesel, 20);
         Truck v2 = new Truck(20, diesel, 20);
         Vehicle v5 = new Vehicle(40);
@@ -40,7 +48,7 @@ public class Runner {
         Racing race = new Racing();
         race.race(v4, v2, 10);
 
-
+*/
 
 
 
@@ -69,4 +77,19 @@ public class Runner {
         Arrays.sort(new int[]{});*/
 
     }
+
+
+    static void marshal(FuelType fuelType)
+            throws JAXBException {
+        JAXBContext context = JAXBContext.newInstance(FuelType.class);
+        Marshaller mar= context.createMarshaller();
+        mar.marshal(fuelType, new File("./fuelType.xml"));
+    }
+    static FuelType unmarshall()
+            throws JAXBException, IOException {
+        JAXBContext context = JAXBContext.newInstance(FuelType.class);
+        return (FuelType) context.createUnmarshaller()
+                .unmarshal(new FileReader("./fuelType.xml"));
+    }
+
 }
