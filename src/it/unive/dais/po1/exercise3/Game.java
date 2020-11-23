@@ -15,8 +15,8 @@ final public class Game {
         if(playerCircle.equals(playerCross))
             throw new GameException("A player cannot play against itself");
         this.board = board.clone();
-        this.playerCircle = playerCross;
-        this.playerCross = playerCircle;
+        this.playerCircle = playerCircle;
+        this.playerCross = playerCross;
     }
 
     /**
