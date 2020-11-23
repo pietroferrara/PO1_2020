@@ -11,23 +11,26 @@ public class TestPlayer {
         new Game(ClassProvider.getPlayer(), new RandomPlayer(), ClassProvider.getBoard()).play();
     }
 
-    @Test public void testSingleRounds() throws GameException {
+    @Test public void testSingleRounds() {
         Player player1 = ClassProvider.getPlayer();
         Player player2 = new RandomPlayer();
         Board board = ClassProvider.getBoard();
         boolean added = true;
         int i = 0;
-        while(added) {
-            if(i%2==0)
-                player1.play(board, Mark.getCross());
-            else
-                player2.play(board, Mark.getCircle());
-            if(added) {
-                Assert.assertEquals(i+1, countFullCells(board));
-                Assert.assertEquals(i / 2 + 1, countCircleCells(board));
-                Assert.assertEquals(i / 2 + i % 2, countCrossCells(board));
-                i = i+1;
+        while(true) {
+            try {
+                if (i % 2 == 0)
+                    player1.play(board, Mark.getCross());
+                else
+                    player2.play(board, Mark.getCircle());
             }
+            catch(GameException e) {
+                break;
+            }
+            Assert.assertEquals(i+1, countFullCells(board));
+            Assert.assertEquals(i / 2 + i % 2, countCircleCells(board));
+            Assert.assertEquals(i / 2 + 1, countCrossCells(board));
+            i = i+1;
         }
         Assert.assertTrue(board.winner()!=null || board.isFull());
     }
