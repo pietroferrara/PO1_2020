@@ -29,12 +29,14 @@ public class Runner {
     }
 
 
-    public static void main(String[] args) throws NegativeSpeedException, JAXBException {
+    public static void main(String[] args) throws NegativeSpeedException, JAXBException, IOException {
 
         FuelType diesel = FuelType.createFuelType("diesel",  1.3, 0.3);
         FuelTank tank = new FuelTank(diesel, 10);
 
-        Runner.marshal(diesel);
+        Runner.marshal(tank);
+
+        FuelType readfuel = Runner.unmarshall();
 
         Vehicle c = new Car(0,diesel, 10);
 
@@ -84,6 +86,12 @@ public class Runner {
         JAXBContext context = JAXBContext.newInstance(FuelType.class);
         Marshaller mar= context.createMarshaller();
         mar.marshal(fuelType, new File("./fuelType.xml"));
+    }
+    static void marshal(FuelTank fuelType)
+            throws JAXBException {
+        JAXBContext context = JAXBContext.newInstance(FuelTank.class);
+        Marshaller mar= context.createMarshaller();
+        mar.marshal(fuelType, new File("./fuelTank.xml"));
     }
     static FuelType unmarshall()
             throws JAXBException, IOException {

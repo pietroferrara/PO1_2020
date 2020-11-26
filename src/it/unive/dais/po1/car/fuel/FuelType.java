@@ -18,7 +18,7 @@ public class FuelType {
     /**
      * The name of the fuel
      */
-    @XmlElement
+    @XmlAttribute
     private final String name;
 
     /**
@@ -32,6 +32,12 @@ public class FuelType {
      */
     @XmlAttribute
     private final double FUEL_CONS;
+
+
+    public FuelType() {
+        this.name = "unknown";
+        this.FUEL_CONS = 0;
+    }
 
     /**
      * Creates a fuel type

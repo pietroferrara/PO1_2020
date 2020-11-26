@@ -1,5 +1,10 @@
 package it.unive.dais.po1.car.fuel;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 /**
  *
  * This class represents a fuel tank.
@@ -7,11 +12,14 @@ package it.unive.dais.po1.car.fuel;
  * @author Pietro Ferrara
  * @since 2.0
  */
+@XmlRootElement
+@XmlType
 public class FuelTank {
 
     /**
      * The type of fuel contained in the tank
      */
+    @XmlElement
     private FuelType type;
 
     /**
@@ -22,7 +30,12 @@ public class FuelTank {
     /**
      * The id of the tank
      */
+    @XmlAttribute
     private final int tankId;
+
+    public FuelTank() {
+        tankId = 0;
+    }
 
     /**
      * A counter of how many tanks have been already created
@@ -66,6 +79,7 @@ public class FuelTank {
      *
      * @return the amount of fuel
      */
+    @XmlAttribute
     public double getAmount() {
         return amount;
     }
