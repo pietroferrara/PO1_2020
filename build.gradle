@@ -11,9 +11,16 @@ repositories {
 dependencies {
     implementation group:'junit', name:'junit', version:'4.13'
     implementation group:'javax.activation', name:'activation', version:'1.1.1'
-    implementation group:'com.sun.xml.bind', name:'jaxb-core', version:'2.3.0'
-    implementation group:'com.sun.xml.bind', name:'jaxb-impl', version:'2.3.0'
-    implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.0'
+    implementation group:'com.sun.xml.bind', name:'jaxb-core', version:'2.3.1'
+    implementation group:'com.sun.xml.bind', name:'jaxb-impl', version:'2.3.1'
+    implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
+    testImplementation group:'junit', name:'junit', version:'4.13'
+    testImplementation group: 'com.google.guava', name: 'guava', version: '30.0-jre'
+    testImplementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.11'
+    testImplementation group: 'commons-cli', name: 'commons-cli', version: '1.4'
+    testImplementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.13.3'
+    testImplementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.13.3'
+
 }
 
 sourceSets {
