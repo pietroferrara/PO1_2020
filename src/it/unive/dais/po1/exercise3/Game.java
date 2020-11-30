@@ -33,7 +33,7 @@ final public class Game {
             Board previous = board.clone();
             if(board.isFull()) {
                 System.out.println("The board is full!");
-                return null;
+                return Result.draw;
             }
             Mark mark = i%2==0 ? Mark.getCross() : Mark.getCircle();
             if(mark==Mark.getCross())
